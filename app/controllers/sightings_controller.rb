@@ -1,8 +1,16 @@
 class SightingsController < ApplicationController
   def new
-    @sighting = Sighting.new
-    @species = Species.find(params[:id])
-
+    species = Species.find(params[:species_id])
+    @sighting = species.sightings.new
     render('sightings/new.html.erb')
+  end
+
+  def create
+    @sighting = Sighting.new(params[:sighting])
+    if @sighting.save
+      render('sightings/success.html.erb')
+    else
+      render('sightings/new.html.erb')
+    end
   end
 end

@@ -1,4 +1,4 @@
-<h2>New Sighting for <%= @species.name %></h2>
+<h2>New Sighting for <%= @sighting.species.name %></h2>
 
 <% if @sighting.errors.any? %>
   <h3>Please fix these errors:</h3>
@@ -9,6 +9,13 @@
   </ul>
 <% end %>
 
-<form action="/species/<%= @species.id %>/sightings" method="post">
-
+<form action="/species/<%= @sighting.species.id %>/sightings" method="post">
+  <label for="sighting_date">Date of sighting</label>
+  <input id="sighting_date" name = 'sighting[date]' type="date" value="<%= @sighting.date %>">
+  <label for="sighting_time">Time of sighting</label>
+  <input id="sighting_time" name = 'sighting[time]' type="time" value="<%= @sighting.time %>">
+  <label for="sighting_location">location of sighting</label>
+  <input id="sighting_location" name = 'sighting[location]' type="text" value="<%= @sighting.location %>">
+  <input id="sighting_species_id" name = "sighting[species_id]" type="hidden" value=<%=@sighting.species.id%>>
+  <button>Add Sighting</button>
 </form>

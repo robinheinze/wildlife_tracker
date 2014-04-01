@@ -1,5 +1,14 @@
 <h2><%=@species.name.capitalize%></h2>
 
-<p> Species sightings will go here </p>
+<% if @species.sightings.length == 0 %>
+  <p>No reported sightings</p>
+<% else %>
+  <ul>
+    <% @species.sightings.order(:date).each do |sighting| %>
+      <li><%= sighting.date.strftime("%m/%d/%Y") %> at <%= sighting.time.strftime("%l:%m%P") %> in <%= sighting.location %> </li>
+    <% end %>
+  </ul>
+<% end %>
 
-<a href="/species">Return to Species page.</a>
+<p><a href="/species/<%= @species.id%>/sightings/new">Add a sighting</a></p>
+<p><a href="/species">Return to Species page</a></p>
