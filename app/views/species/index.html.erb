@@ -3,9 +3,16 @@
 <ul>
   <% @species.each do |species| %>
     <li><a href="/species/<%= species.id%>"><%= species.name %></a>
-      <ul><a class = 'smaller' href="species/<%= species.id%>/edit">Edit</a> |
-      <a class = 'smaller' href="species/<%= species.id%>/destroy">Delete</a></ul>
+      <ul>
+        <a class = 'smaller' href="species/<%= species.id%>/edit">Edit</a> |
+        <a class = 'smaller' href="species/<%= species.id%>"
+          data-confirm="Are you sure you want to eradicate this species?"
+          data-method="delete"
+          rel="nofollow">Delete</a>
+      </ul>
     </li>
     <br>
   <% end %>
 </ul>
+
+<p><a href='species/new'>Create new species</a></p>

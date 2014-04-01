@@ -1,9 +1,18 @@
 <h2>Edit <%= @species.name %></h2>
 
+<% if @species.errors.any? %>
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% @species.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 
 <form action='/species/<%=@species.id%>' method='post'>
   <input name='_method' type='hidden' value ='patch'>
   <label for='species_name'>Name</label>
-  <input id='species_name' name='species[:name]' value='<%= @species.name%>' type='text'>
+  <input id='species_name' name='species[name]' value='<%= @species.name%>' type='text'>
   <button>Update Species</button>
 </form>
