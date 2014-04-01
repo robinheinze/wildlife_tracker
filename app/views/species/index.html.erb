@@ -15,4 +15,14 @@
   <% end %>
 </ul>
 
-<p><a href='species/new'>Create new species</a></p>
+<p><a href='/species/new'>Create new species</a></p>
+
+<h3>Sightings Report</h3>
+
+<form action="/sightings" method="get">
+  <label for="sightings_start_date">Start Date</label>
+  <input id="sightings_start_date" name="sightings[start_date]" type="date">
+  <label for="sightings_end_date">End Date</label>
+  <input id="sightings_end_date" name="sightings[end_date]" type="date">
+  <button>Run report</button>
+</form>

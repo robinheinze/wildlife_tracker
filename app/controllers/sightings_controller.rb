@@ -1,4 +1,10 @@
 class SightingsController < ApplicationController
+
+  def index
+    @sightings = Sighting.between(params[:sightings])
+    render('sightings/index.html.erb')
+  end
+
   def new
     species = Species.find(params[:species_id])
     @sighting = species.sightings.new
