@@ -3,8 +3,9 @@ class Sighting < ActiveRecord::Base
   validates :time, :presence => true
   validates :location, :presence => true
   belongs_to :species
+  belongs_to :region
 
   def self.between(dates)
-    sightings = Sighting.where(:date => dates['start_date']..dates['end_date'])
+    sightings = Sighting.where(:date => dates[:start_date]..dates[:end_date])
   end
 end

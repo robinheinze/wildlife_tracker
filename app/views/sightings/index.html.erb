@@ -1,7 +1,7 @@
 <h3>Species Sightings Report</h3>
 
 <ul>
-  <% @sightings.each do |sighting| %>
+  <% @sightings.order(:date).each do |sighting| %>
     <li><%= sighting.species.name %> - <%= sighting.date.strftime("%m/%d/%Y") %> at <%= sighting.time.strftime("%l:%M%P") %> in <%= sighting.location %>
     </li>
   <% end %>
