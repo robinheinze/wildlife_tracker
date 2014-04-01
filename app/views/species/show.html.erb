@@ -5,10 +5,18 @@
 <% else %>
   <ul>
     <% @species.sightings.order(:date).each do |sighting| %>
-      <li><%= sighting.date.strftime("%m/%d/%Y") %> at <%= sighting.time.strftime("%l:%m%P") %> in <%= sighting.location %> </li>
+      <li><%= sighting.date.strftime("%m/%d/%Y") %> at <%= sighting.time.strftime("%l:%M%P") %> in <%= sighting.location %>
+        <ul>
+          <a class = 'smaller' href="/species/<%=@species.id%>/sightings/<%= sighting.id%>/edit">Edit</a> |
+          <a class = 'smaller' href="/species/<%=@species.id%>/sightings/<%= sighting.id%>"
+            data-confirm="Are you sure you want to delete this sighting?"
+            data-method="delete"
+            rel="nofollow">Delete</a>
+        </ul>
+      </li>
     <% end %>
   </ul>
 <% end %>
 
 <p><a href="/species/<%= @species.id%>/sightings/new">Add a sighting</a></p>
-<p><a href="/species">Return to Species page</a></p>
+<p><a href="/species">Return to species listing</a></p>
