@@ -13,9 +13,15 @@
   <label for="sighting_date">Date of sighting</label>
   <input id="sighting_date" name = 'sighting[date]' type="date" value="<%= @sighting.date %>">
   <label for="sighting_time">Time of sighting</label>
-  <input id="sighting_time" name = 'sighting[time]' type="time" value="<%= @sighting.time %>">
-  <label for="sighting_location">location of sighting</label>
+  <input id="sighting_time" name = 'sighting[time]' type="time" value="<%= @sighting.time %>"><br>
+  <label for="sighting_location">Location of sighting</label>
   <input id="sighting_location" name = 'sighting[location]' type="text" value="<%= @sighting.location %>">
   <input id="sighting_species_id" name = "sighting[species_id]" type="hidden" value=<%=@sighting.species.id%>>
+  <label for="sighting_region_id">Region</label>
+  <select id="sighting_region_id" name = 'sighting[region_id]'>
+    <% Region.all.each do |region| %>
+      <option value=<%=region.id%> > <%= region.name %> </option>
+    <% end %>
+  </select>
   <button>Add Sighting</button>
 </form>

@@ -1,11 +1,11 @@
-<h2><%=@species.name.capitalize%></h2>
+<h2><%=@species.name%></h2>
 
 <% if @species.sightings.length == 0 %>
   <p>No reported sightings</p>
 <% else %>
   <ul>
     <% @species.sightings.order(:date).each do |sighting| %>
-      <li><%= sighting.date.strftime("%m/%d/%Y") %> at <%= sighting.time.strftime("%l:%M%P") %> in <%= sighting.location %>
+      <li><%= sighting.date.strftime("%m/%d/%Y") %> at <%= sighting.time.strftime("%l:%M%P") %> in <%= sighting.region.name %> at <%= sighting.location %>
         <ul>
           <a class = 'smaller' href="/species/<%=@species.id%>/sightings/<%= sighting.id%>/edit">Edit</a> |
           <a class = 'smaller' href="/species/<%=@species.id%>/sightings/<%= sighting.id%>"
