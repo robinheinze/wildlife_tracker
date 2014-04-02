@@ -14,6 +14,13 @@
 
 
  .smaller {
-  font-size: 12px;
+  font-size: 10px;
+  font-family: helvetica;
+  color: black;
+  font-style: none;
+ }
 
+ .region {
+ 	font-style: bold;
+ 	font-size: 18px;
  }

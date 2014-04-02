@@ -28,4 +28,24 @@ class RegionsController < ApplicationController
     render('regions/show.html.erb')
   end
 
+  def edit
+    @region = Region.find(params[:id])
+    render('regions/edit.html.erb')
+  end
+
+  def update
+    @region = Region.find(params[:id])
+    if @region.update(params[:regions])
+      render('regions/success.html.erb')
+    else
+      render('regions/edit.html.erb')
+    end
+  end
+
+  def destroy
+    @region = Region.find(params[:id])
+    @region.destroy
+    render('regions/destroy.html.erb')
+  end
+
 end
