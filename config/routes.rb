@@ -18,6 +18,7 @@ WildlifeTracker::Application.routes.draw do
   match('species/:species_id/sightings/:id', {:via => [:patch, :put], :to => 'sightings#update'})
   match('species/:species_id/sightings/:id', {:via => :delete, :to => 'sightings#destroy'})
 
-  match('regions', {:via => :get, :to => 'regions#index'})
+  match('regions', {:via => :get, :to => 'regions#new'})
   match('regions', {:via => :post, :to => 'regions#create'})
+  match('regions/:id', {:via => :get, :to => 'regions#show'})
 end

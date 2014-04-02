@@ -1,0 +1,11 @@
+<h3>Sightings in the <%= @region.name %> region</h3>
+
+<p>The sightings recorded in <%= @region.name %> are: </p>
+
+<ul>
+	<% @sightings.each do |sighting| %>
+		<li> <%= sighting.species.name %> --- seen at <%= sighting.location %> on <%= sighting.date %> </li> 
+	<% end %>
+</ul>
+
+<p><a href='/species'>Return to main species list</a></p>

@@ -1,24 +1,4 @@
-<h2>Regions</h2>
 
-<ul>
-  <% @regions.each do |region| %>
-    <li><%= region.name %></li>
-  <% end %>
-</ul>
 
-<% if @region.errors.any? %>
-  <h3>Please fix these errors:</h3>
-    <ul>
-      <% @region.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-<% end %>
 
-<form action='/regions' method='post'>
-  <label for='region_name'>Name</label>
-  <input id='region_name' name='regions[name]' type='text'>
-  <button>Add Region</button>
-</form>
 
-<p><a href="/">Return to species listing</a></p>
